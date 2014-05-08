@@ -1,0 +1,22 @@
+extends layout
+
+block content
+	div.container
+		if submissions.length >= 8
+			h1 Submissions Full
+		else
+			h1 Submit A Video
+			form(method="post" action="/formsubmit")
+				div.form-group
+					label(for="name-input") Name
+					input.form-control#name-input(name="name" placeholder="Name")
+				div.form-group
+					label(for="video-url-input") Video URL
+					input.form-control#video-url-input(name="url" placeholder="URL")
+				div.form-group
+					label(for="title-input") Title
+					input.form-control#title-input(name="title" placeholder="Title")
+				div.form-group
+					label(for="description-input") Description
+					textarea.form-control#description-input(name="description" placeholder="Description")
+				button.btn.btn-default(type="submit") Submit

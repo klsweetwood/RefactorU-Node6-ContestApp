@@ -1,0 +1,14 @@
+extends layout
+
+block content
+	div.container
+		h1 Submissions
+		if submissions.length === 0
+			h3 There are no submissions yet.
+		for sub in submissions
+			ul.list-group
+				li.list-group-item 
+					div: h2 #{sub.title}
+					iframe(width="560" height="315" src= sub.url frameborder="0" allowfullscreen)
+					div #{sub.description}
+					div Submitted by #{sub.name}

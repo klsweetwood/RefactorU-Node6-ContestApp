@@ -1,0 +1,22 @@
+extends layout
+
+block content
+	div.container
+		div.row
+			h1 Vote!
+		if submissions.length > 0
+			div.row
+				div.col-xs-6
+					div: h2 #{randomVideos[0].title}
+					iframe(width="100%" height="315" src= randomVideos[0].url frameborder="0" allowfullscreen)
+					div #{randomVideos[0].description}
+					div Submitted by #{randomVideos[0].name}
+					button.btn.btn-default#vote-btn1 Vote
+				div.col-xs-6
+					div: h2 #{randomVideos[1].title}
+					iframe(width="100%" height="315" src= randomVideos[1].url frameborder="0" allowfullscreen)
+					div #{randomVideos[1].description}
+					div Submitted by #{randomVideos[1].name}
+					button.btn.btn-default#vote-btn2 Vote
+		else
+			h3 There are no submissions yet.
