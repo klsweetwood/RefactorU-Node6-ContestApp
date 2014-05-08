@@ -1,3 +1,15 @@
 extends layout
 
 block content
+	div.container
+		h1 Winner!
+		if winner.votes !== undefined 
+			div: h2 #{winner.title}
+			iframe(width="560" height="315" src= winner.url frameborder="0" allowfullscreen)
+			div #{winner.description}
+			div Submitted by #{winner.name}
+		else if submissions.length === 0
+			h3 There are no submissions yet.
+		else
+			h3 There are submissions, but no one has voted yet!
+

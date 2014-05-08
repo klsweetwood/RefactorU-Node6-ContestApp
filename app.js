@@ -33,6 +33,13 @@ function vote(video) {
 	video.votes++;
 }
 
+// Finds the video with the most votes
+function findWinner(submissions) {
+	return _.max(submissions, function(video) {
+		return video.votes;
+	});
+}
+
 
 app.get('/', function(req, res) {
 	res.render('index');
@@ -49,7 +56,10 @@ app.get('/submissions', function(req, res) {
 });
 
 app.get('/winner', function(req, res) {
-	res.render('winner');
+	res.render('winner', {
+		winner: findWinner(submissions),
+		submissions: submissions
+	});
 });
 
 app.get('/vote', function(req, res) {
